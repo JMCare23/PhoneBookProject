@@ -1,0 +1,19 @@
+{% extends "Phonebook/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{form.name|as_crispy_field}} 
+    {{form.number|as_crispy_field}} 
+    {{form.email|as_crispy_field}} 
+<div>
+    <button type ="submit" class = "btn btn-success"><i class="fa-regular fa-database" style="color: #1f513b;"></i>Submit</button>
+</div>
+<div>
+    <a href = "{% url 'contact_list' %}"class = "btn btn-secondary btn-block btn-lg">
+        <i class = "fas fa-stream">Check Contacts</i>
+    </a>
+</div>
+</form>
+{% endblock content %}
